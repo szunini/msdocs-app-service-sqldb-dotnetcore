@@ -28,9 +28,9 @@ jobs:
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
-        - name: Dotnet install ef
-         run: dotnet tool install --global dotnet-ef 
-
+      - name: dot net install EF
+        run: dotnet tool install -g dotnet -ef
+     
       - name: dotnet bundle migration
         run: dotnet ef migrations bundle -p DotNetCoreSqlDb/DotNetCoreSqlDb.csproj -o ${env.DOTNET_ROOT}/myapp/migrate
 
